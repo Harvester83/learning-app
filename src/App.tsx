@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import { useEffect, useRef } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  // Создаем ссылку с помощью хука useRef
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // Пример использования ссылки
+  useEffect(() => {
+    // Устанавливаем фокус на элемент при монтировании компонента
+
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []); // Пустой массив зависимостей означает, что эффект будет за
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {/* Привязываем ссылку к элементу input */}
+      <input ref={inputRef} type="text" />
+      <button onClick={() => inputRef.current && inputRef.current.focus()}>Установить фокус</button>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
