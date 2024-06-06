@@ -1,23 +1,24 @@
-import { useEffect, useRef } from "react";
-import "./App.css";
+import React, { useState, useEffect } from 'react';
 
-function App() {
-  const inputRef = useRef<HTMLInputElement>(null);
+const ButtonClickCounter = () => {
+  const [count, setCount] = useState(0);
+  const [clicks, setClicks] = useState(0);
 
   useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, []);
+    console.log(`Button clicked ${clicks} times`);
+  }, [clicks]);
 
   return (
-    <>
-      <input ref={inputRef} type="text" />
-      <button onClick={() => inputRef.current && inputRef.current.focus()}>
-        Установить фокус
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={() => {
+        setCount(count + 1);
+        setClicks(clicks + 1);
+      }}>
+        Increase Count
       </button>
-    </>
+    </div>
   );
-}
+};
 
-export default App;
+export default ButtonClickCounter;
