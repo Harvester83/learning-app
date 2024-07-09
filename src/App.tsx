@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Greeting from "./components/Greeting";
 
 const ButtonClickCounter = () => {
   const [count, setCount] = useState(0);
@@ -9,14 +10,7 @@ const ButtonClickCounter = () => {
 
   return (
     <div>
-      <h1>Count: {count}</h1>
-      <button
-        onClick={() => {
-          setCount(count + 1)
-        }}
-      >
-        Increase Count
-      </button>
+      <Greeting />
     </div>
   );
 };

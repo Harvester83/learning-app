@@ -1,18 +1,23 @@
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 ## Тестирование
+юнит тесты самый простой пример
+
+Then, create a file named sum.test.js. This will contain our actual test:
+
+```js
+const sum = require('./sum');
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3);
+});
+```
+
+### Настройка окружение тестрование (React)   
+
+Cannot find name 'test'. Do you need to install type definitions for a test runner? Try
+`npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.ts(2582)
+
 
 [Как я перестал беспокоиться и полюбил тестирование React-компонентов](https://habr.com/en/companies/elbrusbootcamp/articles/651033/)
 
@@ -51,3 +56,5 @@ expect(<реальное состояние>).toBe(<ожидаемое сост�
 
 3. findBy — поиск элемента на странице, который зависит от асинхронного кода.
 
+
+Сборщик имеет следующую файловую структуру:
