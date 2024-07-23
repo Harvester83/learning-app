@@ -6,7 +6,7 @@ import Greeting from "./Greeting";
 test('renders Greeting component with correct text', () => {
 
     // Рендеринг компонента
-    render(<Greeting />);
+    render(<Greeting greeting="Hello World" />);
    
     // Поиск загловка
     const headingElement = screen.getByText(/Greeting/i);
